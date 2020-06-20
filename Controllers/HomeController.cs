@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Ex1.Models;
+using Ex1.Models.ViewModels;
 
 namespace Ex1.Controllers
 {
