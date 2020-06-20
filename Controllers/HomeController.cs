@@ -17,7 +17,9 @@ namespace Ex1.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Salles WEB MVC App from C# course";
+            ViewData["Professor"] = "Nelio Alves";
+            ViewData["email"] = "nelio@gmail.com";
 
             return View();
         }
