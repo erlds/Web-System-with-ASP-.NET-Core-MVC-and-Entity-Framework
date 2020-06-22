@@ -37,7 +37,8 @@ namespace Ex1
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<Ex1Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Ex1Context")));
+            options.UseMySql(Configuration.GetConnectionString("Ex1Context"), builder =>
+             builder.MigrationsAssembly("Ex1")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
