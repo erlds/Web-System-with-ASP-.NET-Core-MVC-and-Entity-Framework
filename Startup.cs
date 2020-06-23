@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Ex1.Data;
+using Ex1.Services;
 
 namespace Ex1
 {
@@ -41,6 +42,7 @@ namespace Ex1
              builder.MigrationsAssembly("Ex1")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
