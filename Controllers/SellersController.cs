@@ -33,6 +33,15 @@ namespace Ex1.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Seller seller)
+        {
+            _sellerService.Insert(seller);
+            return RedirectToAction(nameof(Index));
+        }
+
+
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -57,12 +66,20 @@ namespace Ex1.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Seller seller)
+        public IActionResult Details(int? id)
         {
-            _sellerService.Insert(seller);
-            return RedirectToAction(nameof(Index));
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _sellerService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
         }
 
     }
